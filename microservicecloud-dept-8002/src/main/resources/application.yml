@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8002
   
 mybatis:
   config-location: classpath:mybatis/mybatis.cfg.xml  #mybatis配置文件所在位置
@@ -16,7 +16,7 @@ spring:
     #url: jdbc:mysql://192.168.1.27:3306/test
     #username: root
     #password: xwzx_Sinon123
-    url: jdbc:mysql://localhost:3306/cloudDB01
+    url: jdbc:mysql://localhost:3306/cloudDB02
     username: root
     password: 123456
     dbcp2:
@@ -31,7 +31,7 @@ eureka:
       #defaultZone: http://localhost:7001/eureka #配置eureka service 服务端
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
   instance:
-    instance-id: microservicecloud-dept:8001 #修改当前服务注册到eureka中的名称
+    instance-id: microservicecloud-dept:8002 #修改当前服务注册到eureka中的名称
     prefer-ip-address: true #访问路径可以显示IP地址,鼠标移入,左下角显示ip
     
 info: #当通过eureka点击服务链接跳到xxx:xxx/info时，显示这里的内容
