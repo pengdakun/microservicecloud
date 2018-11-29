@@ -6,7 +6,7 @@ mybatis:
   type-aliases-package: com.peng.demo.pojo #配置pojo所在包
   mapper-locations:
   - classpath:mybatis/mapper/**/*.xml #mapper映射文件
-  
+ 
 spring:
   application:
     name: microservicecloud-dept
