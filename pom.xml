@@ -96,5 +96,8 @@
 		<module>microservicecloud-eureka-7003</module>
 		<module>microservicecloud-dept-8002</module>
 		<module>microservicecloud-dept-8003</module>
+		<module>microservicecloud-consumer-dept-feign</module>
+		<module>microservicecloud-provider-dept-hystrix-8001</module>
+		<module>microservicecloud-dept-hystrix-8001</module>
 	</modules>
 </project>
