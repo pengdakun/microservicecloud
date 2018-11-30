@@ -1,0 +1,29 @@
+server:
+  port: 9527
+  
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+    
+zuul:
+  prefix: /peng #为所有微服务前添加统一前缀 http://myzuul.com:9527/peng/mydept/dept/get/1
+  #ignored-services: microservicecloud-dept #microservicecloud-dept微服务的真实名称不能使用
+  ignored-services: "*" #所有的微服务的真实名称不能使用
+  routes:
+    mydept.serviceId: microservicecloud-dept #将microservicecloud-dept微服务映射为/mydept/**   before：http://myzuul.com:9527/microservicecloud-dept/dept/get/1   after:http://myzuul.com:9527/mydept/dept/get/1
+    mydept.path: /mydept/**
+    
+
+info: #当通过eureka点击服务链接跳到xxx:xxx/info时，显示这里的内容
+  app.name: peng-microservicecloud
+  compant.name: www.peng.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

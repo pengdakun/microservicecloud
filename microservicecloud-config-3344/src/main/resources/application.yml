@@ -1,0 +1,11 @@
+server:
+  port: 3344
+  
+spring:
+  application:
+    name: microservicecloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/pengdakun/microservicecloud-config.git #配置config配置文件在github上的仓库地址
