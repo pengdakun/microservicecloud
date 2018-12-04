@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		//let
+		for(let i=0;i<=10;i++){//let 定义局部变量
+			console.log(i);
+		}
+		//console.log("------"+i);
+		
+		//const
+		const num=1;//定义不可修改的变量
+		//console.log(num++);
+		
+		
+		//解构表达式
+		let arr=[2,5,-10,15];
+		let [x,y]=arr;
+		let [,,a,b]=arr;
+		console.log(x+"--"+y);
+		console.log(a+"--"+b);
+		let [,...rest]=arr;//数据重新封装
+		console.log(rest);
+		let p={name:"小华",age:26};
+		let {name,age}=p;//取对象
+		console.log(name,age);
+		let {name:n}=p;//赋值为不同的变量名
+		console.log(n);
+		let q={name:"小红",age:22,girl:{name:"小小红",age:12}};//多次解构
+		let {girl:{name:xnam}}=q;
+		console.log(xnam);
+		let {...obj}=p;//对象拷贝
+		console.log(obj);
+		console.log(obj==p);//为false，表示是深层拷贝
+		
+		
+		//函数定义
+		const add=(a,b) => a+b;
+		console.log(add(1,2));
+		
+		//对象函数优化
+		const g={
+			name:"张三",
+			age:66,
+			/* con:function(){
+				console.log("!!!!!!!!!!!");
+			} */
+			con(){
+				console.log("!!!!!!!!!!!");
+			}
+		};
+		g.con();
+		
+		
+		//函数中对对象进行解构
+		/* const hello=function(persion){
+			console.log(persion.name,persion.age);
+		} */
+		/* const hello=function({name,age}){
+			console.log(name,age);
+		} */
+		const hello=({name,age})=>console.log(name,age);
+		hello(p);
+		
+		
+		//map&reduce
+		let array=["5","421","-20","41"];
+		let array2=array.map(s=>parseInt(s));
+		console.log(array2);
+		let array3=array2.reduce((a,b)=>a+b);//每次运算结果为第一个参数
+		console.log(array3);
+		
+		
+	</script>
+
+</body>
+</html>

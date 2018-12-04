@@ -13,6 +13,13 @@ eureka:
     instance-id: gateway-9527.com
     prefer-ip-address: true
     
+ribbon:
+  ConnectTimeout: 250 #连接超时时间(ms)
+  ReadTimeout: 2000 #通信超时时间(ms)
+  OkToRetryOnAllOperations: true #是否对所有操作重试
+  MaxAutoRetriesNextServer: 2 #同一服务不同实例的重试次数
+  MaxAutoRetries: 1 #同一实例的重试次数
+    
 zuul:
   prefix: /peng #为所有微服务前添加统一前缀 http://myzuul.com:9527/peng/mydept/dept/get/1
   #ignored-services: microservicecloud-dept #microservicecloud-dept微服务的真实名称不能使用
@@ -20,6 +27,14 @@ zuul:
   routes:
     mydept.serviceId: microservicecloud-dept #将microservicecloud-dept微服务映射为/mydept/**   before：http://myzuul.com:9527/microservicecloud-dept/dept/get/1   after:http://myzuul.com:9527/mydept/dept/get/1
     mydept.path: /mydept/**
+    
+hystrix:
+  command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMillisecond: 6000 #熔断超时时长：6000ms
     
 
 info: #当通过eureka点击服务链接跳到xxx:xxx/info时，显示这里的内容
