@@ -13,7 +13,7 @@ import com.peng.demo.pojo.Dept;
 * 项目名称：microservicecloud-api   
 * 类名称：DeptClientService   
 * 类描述：   通过feign实现面向接口调用微服务
-* 创建人：彭坤   
+* 创建人：彭坤  测试一个提交了
 * 创建时间：2018年11月29日 下午4:08:02      
 * @version 
 * 
